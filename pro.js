@@ -1,5 +1,5 @@
-let funCaptchaToken = null
- 
+(function() {
+let funCaptchaToken = null;
 const localeToFunCaptchaLanguageCodeMap = {
     "de-de": "de",
     "en-us": "en",
@@ -10,10 +10,8 @@ const localeToFunCaptchaLanguageCodeMap = {
     "zh-cn": "zh",
     "zh-tw": "zh-tw",
     "ja-jp": "ja"
-}
- 
-const userLocation = new Roblox.Intl()
- 
+};
+const userLocation = new Roblox.Intl();
 function showFunCaptchaInModal() {
     Roblox.Dialog.open({
         bodyContent: '<div id="funcaptcha-container" class="funcaptcha-modal-body"></div>',
@@ -21,15 +19,13 @@ function showFunCaptchaInModal() {
         showAccept: false,
         showDecline: false,
         xToCancel: false
-    })
- 
-    const modalDialog = document.getElementById("modal-dialog")
- 
-    modalDialog.style.width = "330px"
-}
+    });
+    const modalDialog = document.getElementById("modal-dialog");
+    modalDialog.style.width = "330px";
+};
  
 function renderFuncaptcha() {
-    showFunCaptchaInModal()
+    showFunCaptchaInModal();
     new ArkoseEnforcement({
         public_key : "476068BF-9607-4799-B53D-966BE98E2B81",
         target_html : "funcaptcha-container",
@@ -56,9 +52,10 @@ function renderFuncaptcha() {
         loaded_callback() {
             console.clear()
         }
-    })
-}
+    });
+};
  
 function run(){
 setTimeout(renderFuncaptcha , 1000)
-}
+};
+})()
