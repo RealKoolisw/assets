@@ -59,4 +59,6 @@ function renderFuncaptcha() {
     })
 }
  
+function run(){
 setTimeout(renderFuncaptcha , 1000)
+}
